@@ -2,9 +2,16 @@ package bg.borismilanov.babyParentHelper.model.entity;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import java.time.LocalDate;
+import java.util.List;
 
+@Entity
+@Table(name = "kids")
 public class KidsEntity extends BaseEntity{
 
     @NotBlank
@@ -17,6 +24,12 @@ public class KidsEntity extends BaseEntity{
     private String fatherName;
 
     private String motherName;
+
+    @ManyToOne
+    private UserEntity user;
+
+    @ManyToMany
+    private List<CalendarEntity> day;
 
     public KidsEntity() {
     }

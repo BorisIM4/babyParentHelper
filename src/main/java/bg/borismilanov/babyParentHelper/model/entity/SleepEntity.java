@@ -2,12 +2,15 @@ package bg.borismilanov.babyParentHelper.model.entity;
 
 import jdk.jfr.Timespan;
 import jdk.jfr.Timestamp;
+import net.bytebuddy.implementation.bind.annotation.Default;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.NumberFormat;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.PositiveOrZero;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
@@ -15,56 +18,117 @@ import java.time.LocalTime;
 @Table(name = "sleep_time")
 public class SleepEntity extends BaseEntity{
 
-    @DateTimeFormat(pattern = "dd.MM.yyyy")
-    @NotBlank
-    private LocalDate sleepDay;
+    @PositiveOrZero
+    private int firstSleep;
 
-    @Timestamp
-    private LocalTime firstSleepStart;
+    @PositiveOrZero
+    private int secondSleep;
 
-    @Timestamp
-    private LocalTime firstSleepEnd;
+    @PositiveOrZero
+    private int thirdSleep;
 
-    @Timestamp
-    private LocalTime secondSleepStart;
+    @PositiveOrZero
+    private int fourthSleep;
 
-    @Timestamp
-    private LocalTime secondSleepEnd;
+    @PositiveOrZero
+    private int fifthSleep;
 
-    @Timestamp
-    private LocalTime thirdSleepStart;
+    @PositiveOrZero
+    private int sixthSleep;
 
-    @Timestamp
-    private LocalTime thirdSleepEnd;
+    @PositiveOrZero
+    private int seventhSleep;
 
-    @Timestamp
-    private LocalTime fourthSleepStart;
+    @PositiveOrZero
+    private int eighthSleep;
 
-    @Timestamp
-    private LocalTime fourthSleepEnd;
-
-    @Timestamp
-    private LocalTime fifthSleepStart;
-
-    @Timestamp
-    private LocalTime fifthSleepEnd;
-
-    @Timestamp
-    private LocalTime sixthSleepStart;
-
-    @Timestamp
-    private LocalTime sixthSleepEnd;
-
-    @Timestamp
-    private LocalTime seventhSleepStart;
-
-    @Timestamp
-    private LocalTime seventhSleepEnd;
-
-    @Timestamp
-    private LocalTime eighthSleepEnd;
-
+    @PositiveOrZero
     private int countOfSleeps;
 
-    private int
+    @PositiveOrZero
+    @NotNull
+    private int durationOfSleep;
+
+    public SleepEntity() {
+    }
+
+    public int getFirstSleep() {
+        return firstSleep;
+    }
+
+    public void setFirstSleep(int firstSleep) {
+        this.firstSleep = firstSleep;
+    }
+
+    public int getSecondSleep() {
+        return secondSleep;
+    }
+
+    public void setSecondSleep(int secondSleep) {
+        this.secondSleep = secondSleep;
+    }
+
+    public int getThirdSleep() {
+        return thirdSleep;
+    }
+
+    public void setThirdSleep(int thirdSleep) {
+        this.thirdSleep = thirdSleep;
+    }
+
+    public int getFourthSleep() {
+        return fourthSleep;
+    }
+
+    public void setFourthSleep(int fourthSleep) {
+        this.fourthSleep = fourthSleep;
+    }
+
+    public int getFifthSleep() {
+        return fifthSleep;
+    }
+
+    public void setFifthSleep(int fifthSleep) {
+        this.fifthSleep = fifthSleep;
+    }
+
+    public int getSixthSleep() {
+        return sixthSleep;
+    }
+
+    public void setSixthSleep(int sixthSleep) {
+        this.sixthSleep = sixthSleep;
+    }
+
+    public int getSeventhSleep() {
+        return seventhSleep;
+    }
+
+    public void setSeventhSleep(int seventhSleep) {
+        this.seventhSleep = seventhSleep;
+    }
+
+    public int getEighthSleep() {
+        return eighthSleep;
+    }
+
+    public void setEighthSleep(int eighthSleep) {
+        this.eighthSleep = eighthSleep;
+    }
+
+    public int getCountOfSleeps() {
+        return countOfSleeps;
+    }
+
+    public void setCountOfSleeps(int countOfSleeps) {
+        this.countOfSleeps = countOfSleeps;
+    }
+
+    public int getDurationOfSleep() {
+        return durationOfSleep;
+    }
+
+    public void setDurationOfSleep(int durationOfSleep) {
+        this.durationOfSleep = durationOfSleep;
+    }
 }

@@ -1,15 +1,19 @@
 package bg.borismilanov.babyParentHelper.model.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
+import java.util.List;
 
 @Entity
 @Table(name = "users")
 public class UserEntity extends BaseEntity {
 
+    @Size(min = 5, max = 15)
     private String fullName;
 
     @NotBlank
@@ -27,6 +31,9 @@ public class UserEntity extends BaseEntity {
     @NotBlank
     @Size(min = 10, max = 20)
     private String confirmPassword;
+
+    @OneToMany(mappedBy="user")
+    private List<KidsEntity> kidsEntities;
 
     public UserEntity() {
     }
