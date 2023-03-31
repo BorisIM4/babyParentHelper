@@ -3,13 +3,18 @@ package bg.borismilanov.babyParentHelper.model.entity;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.PositiveOrZero;
+import java.time.LocalDate;
 import java.util.List;
 
 @Entity
 @Table(name = "feed_time")
 public class FeedEntity extends BaseEntity{
+
+    @NotBlank
+    private LocalDate sleepDate;
 
     @PositiveOrZero
     private int firstFeed;
@@ -40,9 +45,6 @@ public class FeedEntity extends BaseEntity{
 
     @PositiveOrZero
     private int durationOfFeed;
-
-    @ManyToMany
-    private List<KidsEntity> kids;
 
     public FeedEntity() {
     }
@@ -127,11 +129,11 @@ public class FeedEntity extends BaseEntity{
         this.durationOfFeed = durationOfFeed;
     }
 
-    public List<KidsEntity> getKids() {
-        return kids;
+    public LocalDate getSleepDate() {
+        return sleepDate;
     }
 
-    public void setKids(List<KidsEntity> kids) {
-        this.kids = kids;
+    public void setSleepDate(LocalDate sleepDate) {
+        this.sleepDate = sleepDate;
     }
 }

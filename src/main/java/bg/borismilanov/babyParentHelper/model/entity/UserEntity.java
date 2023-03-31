@@ -8,6 +8,7 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "users")
@@ -33,7 +34,7 @@ public class UserEntity extends BaseEntity {
     private String confirmPassword;
 
     @OneToMany(mappedBy="user")
-    private List<KidsEntity> kidsEntities;
+    private Set<KidsEntity> kidsEntities;
 
     public UserEntity() {
     }
@@ -76,5 +77,13 @@ public class UserEntity extends BaseEntity {
 
     public void setConfirmPassword(String confirmPassword) {
         this.confirmPassword = confirmPassword;
+    }
+
+    public Set<KidsEntity> getKidsEntities() {
+        return kidsEntities;
+    }
+
+    public void setKidsEntities(Set<KidsEntity> kidsEntities) {
+        this.kidsEntities = kidsEntities;
     }
 }

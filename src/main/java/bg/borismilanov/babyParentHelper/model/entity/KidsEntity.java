@@ -9,6 +9,7 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "kids")
@@ -29,10 +30,13 @@ public class KidsEntity extends BaseEntity{
     private UserEntity user;
 
     @ManyToMany
-    private List<SleepEntity> sleepingTimes;
+    private Set<SleepEntity> sleepingTimes;
 
     @ManyToMany
-    private List<FeedEntity> feedingTimes;
+    private Set<FeedEntity> feedingTimes;
+
+    @ManyToMany
+    private Set<MedicalEntity> medicalProfile;
 
     public KidsEntity() {
     }
@@ -67,5 +71,37 @@ public class KidsEntity extends BaseEntity{
 
     public void setMotherName(String motherName) {
         this.motherName = motherName;
+    }
+
+    public UserEntity getUser() {
+        return user;
+    }
+
+    public void setUser(UserEntity user) {
+        this.user = user;
+    }
+
+    public Set<SleepEntity> getSleepingTimes() {
+        return sleepingTimes;
+    }
+
+    public void setSleepingTimes(Set<SleepEntity> sleepingTimes) {
+        this.sleepingTimes = sleepingTimes;
+    }
+
+    public Set<FeedEntity> getFeedingTimes() {
+        return feedingTimes;
+    }
+
+    public void setFeedingTimes(Set<FeedEntity> feedingTimes) {
+        this.feedingTimes = feedingTimes;
+    }
+
+    public Set<MedicalEntity> getMedicalProfile() {
+        return medicalProfile;
+    }
+
+    public void setMedicalProfile(Set<MedicalEntity> medicalProfile) {
+        this.medicalProfile = medicalProfile;
     }
 }

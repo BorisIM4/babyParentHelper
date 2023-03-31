@@ -20,6 +20,9 @@ import java.util.List;
 @Table(name = "sleep_time")
 public class SleepEntity extends BaseEntity{
 
+    @NotBlank
+    private LocalDate sleepDate;
+
     @PositiveOrZero
     private int firstSleep;
 
@@ -49,9 +52,6 @@ public class SleepEntity extends BaseEntity{
 
     @PositiveOrZero
     private int durationOfSleep;
-
-    @ManyToMany
-    private List<KidsEntity> kids;
 
     public SleepEntity() {
     }
@@ -136,11 +136,11 @@ public class SleepEntity extends BaseEntity{
         this.durationOfSleep = durationOfSleep;
     }
 
-    public List<KidsEntity> getKids() {
-        return kids;
+    public LocalDate getSleepDate() {
+        return sleepDate;
     }
 
-    public void setKids(List<KidsEntity> kids) {
-        this.kids = kids;
+    public void setSleepDate(LocalDate sleepDate) {
+        this.sleepDate = sleepDate;
     }
 }
