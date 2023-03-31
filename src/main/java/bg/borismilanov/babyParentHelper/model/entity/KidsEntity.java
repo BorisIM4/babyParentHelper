@@ -29,7 +29,10 @@ public class KidsEntity extends BaseEntity{
     private UserEntity user;
 
     @ManyToMany
-    private List<CalendarEntity> day;
+    private List<SleepEntity> sleepingTimes;
+
+    @ManyToMany
+    private List<FeedEntity> feedingTimes;
 
     public KidsEntity() {
     }

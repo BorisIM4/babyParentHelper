@@ -7,12 +7,14 @@ import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.NumberFormat;
 
 import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.PositiveOrZero;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.List;
 
 @Entity
 @Table(name = "sleep_time")
@@ -46,8 +48,10 @@ public class SleepEntity extends BaseEntity{
     private int countOfSleeps;
 
     @PositiveOrZero
-    @NotNull
     private int durationOfSleep;
+
+    @ManyToMany
+    private List<KidsEntity> kids;
 
     public SleepEntity() {
     }
@@ -130,5 +134,13 @@ public class SleepEntity extends BaseEntity{
 
     public void setDurationOfSleep(int durationOfSleep) {
         this.durationOfSleep = durationOfSleep;
+    }
+
+    public List<KidsEntity> getKids() {
+        return kids;
+    }
+
+    public void setKids(List<KidsEntity> kids) {
+        this.kids = kids;
     }
 }
