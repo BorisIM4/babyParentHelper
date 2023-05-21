@@ -6,28 +6,25 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.validation.constraints.NotBlank;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "articles")
 public class ArticleEntity extends BaseEntity {
 
-    @NotBlank
+    @Column(nullable = false)
     private String name;
 
     private String description;
 
-    @Column(columnDefinition = "TEXT")
-    @NotBlank
+    @Column(nullable = false, columnDefinition = "TEXT")
     private String content;
 
-    @NotBlank
+    @Column(nullable = false)
     private String picturesUrl;
 
-    @NotBlank
-    @DateTimeFormat
-    private LocalDateTime publishDate;
+    @Column(nullable = false)
+    private LocalDate publishDate;
 
     @ManyToOne
     private UserEntity author;
@@ -67,11 +64,11 @@ public class ArticleEntity extends BaseEntity {
         this.picturesUrl = picturesUrl;
     }
 
-    public LocalDateTime getPublishDate() {
+    public LocalDate getPublishDate() {
         return publishDate;
     }
 
-    public void setPublishDate(LocalDateTime publishDate) {
+    public void setPublishDate(LocalDate publishDate) {
         this.publishDate = publishDate;
     }
 

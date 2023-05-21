@@ -1,5 +1,6 @@
 package bg.borismilanov.babyParentHelper.model.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
@@ -13,37 +14,27 @@ import java.util.List;
 @Table(name = "feed_time")
 public class FeedEntity extends BaseEntity{
 
-    @NotBlank
+    @Column(nullable = false)
     private LocalDate sleepDate;
 
-    @PositiveOrZero
     private int firstFeed;
 
-    @PositiveOrZero
     private int secondFeed;
 
-    @PositiveOrZero
     private int thirdFeed;
 
-    @PositiveOrZero
     private int fourthFeed;
 
-    @PositiveOrZero
     private int fifthFeed;
 
-    @PositiveOrZero
     private int sixthFeed;
 
-    @PositiveOrZero
     private int seventhFeed;
 
-    @PositiveOrZero
     private int eighthFeed;
 
-    @PositiveOrZero
     private int countOfFeed;
 
-    @PositiveOrZero
     private int durationOfFeed;
 
     public FeedEntity() {

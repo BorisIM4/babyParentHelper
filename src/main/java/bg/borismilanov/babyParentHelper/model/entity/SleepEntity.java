@@ -1,56 +1,35 @@
 package bg.borismilanov.babyParentHelper.model.entity;
 
-import jdk.jfr.Timespan;
-import jdk.jfr.Timestamp;
-import net.bytebuddy.implementation.bind.annotation.Default;
-import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.format.annotation.NumberFormat;
-
+import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.ManyToMany;
 import javax.persistence.Table;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.PositiveOrZero;
 import java.time.LocalDate;
-import java.time.LocalTime;
-import java.util.List;
 
 @Entity
 @Table(name = "sleep_time")
 public class SleepEntity extends BaseEntity{
 
-    @NotBlank
+    @Column(nullable = false)
     private LocalDate sleepDate;
 
-    @PositiveOrZero
     private int firstSleep;
 
-    @PositiveOrZero
     private int secondSleep;
 
-    @PositiveOrZero
     private int thirdSleep;
 
-    @PositiveOrZero
     private int fourthSleep;
 
-    @PositiveOrZero
     private int fifthSleep;
 
-    @PositiveOrZero
     private int sixthSleep;
 
-    @PositiveOrZero
     private int seventhSleep;
 
-    @PositiveOrZero
     private int eighthSleep;
 
-    @PositiveOrZero
     private int countOfSleeps;
 
-    @PositiveOrZero
     private int durationOfSleep;
 
     public SleepEntity() {

@@ -1,9 +1,6 @@
 package bg.borismilanov.babyParentHelper.model.entity;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
@@ -14,26 +11,19 @@ import java.util.Set;
 @Table(name = "users")
 public class UserEntity extends BaseEntity {
 
-    @Size(min = 5, max = 15)
-    private String fullName;
-
-    @NotBlank
-    @Size(min = 5, max = 15)
+    @Column(unique = true, nullable = false)
     private String userName;
 
-    @NotBlank
-    @Email
-    private String email;
-
-    @NotBlank
-    @Size(min = 10, max = 20)
+    @Column(nullable = false)
     private String password;
 
-    @NotBlank
-    @Size(min = 10, max = 20)
-    private String confirmPassword;
+    @Column(unique = true, nullable = false)
+    private String email;
 
-    @OneToMany(mappedBy="user")
+    @Column(name = "full_name", nullable = false)
+    private String fullName;
+
+    @OneToMany(mappedBy = "user")
     private Set<KidsEntity> kidsEntities;
 
     public UserEntity() {
@@ -69,14 +59,6 @@ public class UserEntity extends BaseEntity {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public String getConfirmPassword() {
-        return confirmPassword;
-    }
-
-    public void setConfirmPassword(String confirmPassword) {
-        this.confirmPassword = confirmPassword;
     }
 
     public Set<KidsEntity> getKidsEntities() {
