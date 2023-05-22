@@ -2,10 +2,7 @@ package bg.borismilanov.babyParentHelper.model.entity;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.persistence.Entity;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import java.time.LocalDate;
 import java.util.List;
@@ -15,11 +12,10 @@ import java.util.Set;
 @Table(name = "kids")
 public class KidsEntity extends BaseEntity{
 
-    @NotBlank
+    @Column(nullable = false)
     private String fullName;
 
-    @DateTimeFormat(pattern = "dd.MM.yyyy")
-    @NotBlank
+    @Column(nullable = false)
     private LocalDate birthdate;
 
     private String fatherName;
@@ -27,15 +23,15 @@ public class KidsEntity extends BaseEntity{
     private String motherName;
 
     @ManyToOne
-    private UserEntity user;
+    private UserEntity profileOwner;
 
-    @ManyToMany
+    @OneToMany
     private Set<SleepEntity> sleepingTimes;
 
-    @ManyToMany
+    @OneToMany
     private Set<FeedEntity> feedingTimes;
 
-    @ManyToMany
+    @OneToMany
     private Set<MedicalEntity> medicalProfile;
 
     public KidsEntity() {
@@ -73,12 +69,12 @@ public class KidsEntity extends BaseEntity{
         this.motherName = motherName;
     }
 
-    public UserEntity getUser() {
-        return user;
+    public UserEntity getProfileOwner() {
+        return profileOwner;
     }
 
-    public void setUser(UserEntity user) {
-        this.user = user;
+    public void setProfileOwner(UserEntity profileOwner) {
+        this.profileOwner = profileOwner;
     }
 
     public Set<SleepEntity> getSleepingTimes() {

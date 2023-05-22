@@ -1,9 +1,10 @@
 package bg.borismilanov.babyParentHelper.model.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.time.LocalDate;
+import java.time.LocalTime;
+import java.util.LinkedList;
+import java.util.List;
 
 @Entity
 @Table(name = "sleep_time")
@@ -11,6 +12,13 @@ public class SleepEntity extends BaseEntity{
 
     @Column(nullable = false)
     private LocalDate sleepDate;
+
+    private int countOfSleeps;
+
+    private int durationOfSleep;
+
+//    @ElementCollection
+//    private List<LocalTime> sleepWakeIntervals;
 
     private int firstSleep;
 
@@ -28,14 +36,43 @@ public class SleepEntity extends BaseEntity{
 
     private int eighthSleep;
 
-    private int countOfSleeps;
-
-    private int durationOfSleep;
 
     public SleepEntity() {
     }
 
-    public int getFirstSleep() {
+    public LocalDate getSleepDate() {
+        return sleepDate;
+    }
+
+    public void setSleepDate(LocalDate sleepDate) {
+        this.sleepDate = sleepDate;
+    }
+
+    public int getCountOfSleeps() {
+        return countOfSleeps;
+    }
+
+    public void setCountOfSleeps(int countOfSleeps) {
+        this.countOfSleeps = countOfSleeps;
+    }
+
+    public int getDurationOfSleep() {
+        return durationOfSleep;
+    }
+
+    public void setDurationOfSleep(int durationOfSleep) {
+        this.durationOfSleep = durationOfSleep;
+    }
+
+//    public List<LocalTime> getSleepWakeIntervals() {
+//        return this.sleepWakeIntervals;
+//    }
+//
+//    public void setSleepWakeIntervals(List<LocalTime> sleepWakeIntervals) {
+//        this.sleepWakeIntervals = sleepWakeIntervals;
+//    }
+
+        public int getFirstSleep() {
         return firstSleep;
     }
 
@@ -97,29 +134,5 @@ public class SleepEntity extends BaseEntity{
 
     public void setEighthSleep(int eighthSleep) {
         this.eighthSleep = eighthSleep;
-    }
-
-    public int getCountOfSleeps() {
-        return countOfSleeps;
-    }
-
-    public void setCountOfSleeps(int countOfSleeps) {
-        this.countOfSleeps = countOfSleeps;
-    }
-
-    public int getDurationOfSleep() {
-        return durationOfSleep;
-    }
-
-    public void setDurationOfSleep(int durationOfSleep) {
-        this.durationOfSleep = durationOfSleep;
-    }
-
-    public LocalDate getSleepDate() {
-        return sleepDate;
-    }
-
-    public void setSleepDate(LocalDate sleepDate) {
-        this.sleepDate = sleepDate;
     }
 }

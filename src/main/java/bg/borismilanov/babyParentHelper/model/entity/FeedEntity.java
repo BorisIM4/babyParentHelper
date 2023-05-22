@@ -17,6 +17,10 @@ public class FeedEntity extends BaseEntity{
     @Column(nullable = false)
     private LocalDate sleepDate;
 
+    private int countOfFeed;
+
+    private int durationOfFeed;
+
     private int firstFeed;
 
     private int secondFeed;
@@ -32,10 +36,6 @@ public class FeedEntity extends BaseEntity{
     private int seventhFeed;
 
     private int eighthFeed;
-
-    private int countOfFeed;
-
-    private int durationOfFeed;
 
     public FeedEntity() {
     }

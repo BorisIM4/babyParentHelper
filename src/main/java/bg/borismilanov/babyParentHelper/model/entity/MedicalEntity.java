@@ -11,11 +11,11 @@ import java.time.LocalDateTime;
 @Table(name = "medical_data")
 public class MedicalEntity extends BaseEntity{
 
-    @NotBlank
-    private LocalDateTime sleepDate;
+    @Column(nullable = false)
+    private LocalDateTime examinationDate;
 
     //orthopedist, pediatrician
-    @NotBlank
+    @Column(nullable = false)
     private String medicalSpecialist;
 
     @Column(columnDefinition = "TEXT")
@@ -27,12 +27,12 @@ public class MedicalEntity extends BaseEntity{
     public MedicalEntity() {
     }
 
-    public LocalDateTime getSleepDate() {
-        return sleepDate;
+    public LocalDateTime getExaminationDate() {
+        return examinationDate;
     }
 
-    public void setSleepDate(LocalDateTime sleepDate) {
-        this.sleepDate = sleepDate;
+    public void setExaminationDate(LocalDateTime examinationDate) {
+        this.examinationDate = examinationDate;
     }
 
     public String getMedicalSpecialist() {
