@@ -23,7 +23,7 @@ public class UserEntity extends BaseEntity {
     @Column(name = "full_name", nullable = false)
     private String fullName;
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "profileOwner")
     private Set<KidsEntity> kidsEntities;
 
     public UserEntity() {
