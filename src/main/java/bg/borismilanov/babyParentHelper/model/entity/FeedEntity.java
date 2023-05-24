@@ -1,9 +1,6 @@
 package bg.borismilanov.babyParentHelper.model.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.ManyToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.PositiveOrZero;
@@ -36,6 +33,9 @@ public class FeedEntity extends BaseEntity{
     private int seventhFeed;
 
     private int eighthFeed;
+
+    @ManyToOne
+    private KidsEntity feedingKId;
 
     public FeedEntity() {
     }

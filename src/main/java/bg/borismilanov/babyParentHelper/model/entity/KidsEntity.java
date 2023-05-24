@@ -25,13 +25,13 @@ public class KidsEntity extends BaseEntity{
     @ManyToOne
     private UserEntity profileOwner;
 
-    @OneToMany
+    @OneToMany(mappedBy = "sleepingKId")
     private Set<SleepEntity> sleepingTimes;
 
-    @OneToMany
+    @OneToMany(mappedBy = "feedingKId")
     private Set<FeedEntity> feedingTimes;
 
-    @OneToMany
+    @OneToMany(mappedBy = "medicalDataKidId")
     private Set<MedicalEntity> medicalProfile;
 
     public KidsEntity() {

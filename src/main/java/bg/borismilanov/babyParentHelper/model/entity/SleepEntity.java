@@ -17,9 +17,6 @@ public class SleepEntity extends BaseEntity{
 
     private int durationOfSleep;
 
-//    @ElementCollection
-//    private List<LocalTime> sleepWakeIntervals;
-
     private int firstSleep;
 
     private int secondSleep;
@@ -36,6 +33,8 @@ public class SleepEntity extends BaseEntity{
 
     private int eighthSleep;
 
+    @ManyToOne
+    private KidsEntity sleepingKId;
 
     public SleepEntity() {
     }
@@ -63,14 +62,6 @@ public class SleepEntity extends BaseEntity{
     public void setDurationOfSleep(int durationOfSleep) {
         this.durationOfSleep = durationOfSleep;
     }
-
-//    public List<LocalTime> getSleepWakeIntervals() {
-//        return this.sleepWakeIntervals;
-//    }
-//
-//    public void setSleepWakeIntervals(List<LocalTime> sleepWakeIntervals) {
-//        this.sleepWakeIntervals = sleepWakeIntervals;
-//    }
 
         public int getFirstSleep() {
         return firstSleep;

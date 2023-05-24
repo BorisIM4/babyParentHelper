@@ -2,6 +2,7 @@ package bg.borismilanov.babyParentHelper.model.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import java.time.LocalDate;
@@ -23,6 +24,9 @@ public class MedicalEntity extends BaseEntity{
 
     //Can be picture of any given medical document
     private String pictureUrl;
+
+    @ManyToOne
+    private KidsEntity medicalDataKidId;
 
     public MedicalEntity() {
     }

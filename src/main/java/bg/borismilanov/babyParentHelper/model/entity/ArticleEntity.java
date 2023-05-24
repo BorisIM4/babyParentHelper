@@ -26,6 +26,7 @@ public class ArticleEntity extends BaseEntity {
     @Column(nullable = false)
     private LocalDate publishDate;
 
+    //one directional relation. Only
     @ManyToOne
     private UserEntity author;
 
