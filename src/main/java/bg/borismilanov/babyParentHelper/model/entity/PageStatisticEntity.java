@@ -1,11 +1,16 @@
 package bg.borismilanov.babyParentHelper.model.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "page_statistics")
 public class PageStatisticEntity extends BaseEntity {
+
+    @Column(nullable = false)
+    private LocalDate pageStatsDay;
 
     private Long indexPageStatsPerDay;
 
@@ -26,6 +31,14 @@ public class PageStatisticEntity extends BaseEntity {
     private Long helpPageStatsPerDay;
 
     public PageStatisticEntity() {
+    }
+
+    public LocalDate getPageStatsDay() {
+        return pageStatsDay;
+    }
+
+    public void setPageStatsDay(LocalDate pageStatsDay) {
+        this.pageStatsDay = pageStatsDay;
     }
 
     public Long getIndexPageStatsPerDay() {

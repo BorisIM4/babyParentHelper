@@ -9,11 +9,11 @@ import java.time.LocalDate;
 @Table(name = "general_statistics")
 public class GeneralStatisticEntity extends BaseEntity {
 
-    @Column
-    private LocalDate statisticsDate;
+    @Column(nullable = false)
+    private LocalDate generalStatsDay;
 
     @Column
-    private Long registeredUser;
+    private Long registeredUserPerDay;
 
     @Column
     private Long visitorsPerDay;
@@ -24,20 +24,20 @@ public class GeneralStatisticEntity extends BaseEntity {
     public GeneralStatisticEntity() {
     }
 
-    public LocalDate getStatisticsDate() {
-        return statisticsDate;
+    public LocalDate getGeneralStatsDay() {
+        return generalStatsDay;
     }
 
-    public void setStatisticsDate(LocalDate statisticsDate) {
-        this.statisticsDate = statisticsDate;
+    public void setGeneralStatsDay(LocalDate generalStatsDay) {
+        this.generalStatsDay = generalStatsDay;
     }
 
-    public Long getRegisteredUser() {
-        return registeredUser;
+    public Long getRegisteredUserPerDay() {
+        return registeredUserPerDay;
     }
 
-    public void setRegisteredUser(Long registeredUser) {
-        this.registeredUser = registeredUser;
+    public void setRegisteredUserPerDay(Long registeredUserPerDay) {
+        this.registeredUserPerDay = registeredUserPerDay;
     }
 
     public Long getVisitorsPerDay() {
