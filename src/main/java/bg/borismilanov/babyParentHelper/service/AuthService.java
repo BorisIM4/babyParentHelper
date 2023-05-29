@@ -27,7 +27,18 @@ public class AuthService {
             return false;
         }
 
-        
+        Optional<UserEntity> byUsername = this.userRepository.findByUsername(userRegistrationDTO.getUsername());
+        if (byUsername.isPresent()) {
+            return false;
+        }
+
+        UserEntity user = new UserEntity();
+        user.setUsername(userRegistrationDTO.getUsername());
+        user.setEmail(userRegistrationDTO.getEmail());
+        user.setFullName(userRegistrationDTO.getFullName());
+        user.setPassword(userRegistrationDTO.getPassword());
+
+        this.userRepository.save(user);
 
         return true;
     }
