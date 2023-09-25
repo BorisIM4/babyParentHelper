@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="navbar" class="navbar" style="border: 4px solid black">
+        <div id="logo">
+            <button id="logo" type="button" onclick="window.location.href='index.html'">
+                Logo
+            </button>
+        </div>
+
+        <div id="nav_buttons">
+            <button id="faq" type="button" onclick="window.location.href='faq.html'">
+                Често задавани въпроси
+            </button>
+
+            <button id="usefull" type="button" onclick="window.location.href='usefull.html'">
+                Полезни
+            </button>
+
+            <button id="news" type="button" onclick="window.location.href='news.html'">
+                Новини
+            </button>
+
+            <button id="about" type="button" onclick="window.location.href='about.html';">
+                За нас
+            </button>
+            
+        </div>
+
+        <div id="login_register">
+            <button id="login" type="button" onclick="window.location.href='login.html';">
+                Вход
+            </button>
+
+            <button id="register" type="button" onclick="window.location.href='register.html'">
+                Регистрация
+            </button>
+        </div>
+    </div>
+
+    <div class="middle_section">
+        <div id="left_banner" class="column">
+            left_banner
+        </div>
+
+        <div id="main_site" class="column">    
+            <div id="login_form_div">
+                <div id="login_center_position">
+                    <form id="login_form" action="POST">
+                        <label for="fname">First name:</label>
+                        <input type="text" id="fname" name="fname"><br><br>
+                        <label for="lname">Last name:</label>
+                        <input type="text" id="lname" name="lname"><br><br>
+                        <input type="submit" value="Submit">
+                      </form> 
+                </div>
+            </div>
+        </div>
+
+        <div id="right_banner" class="column">
+            right_banner
+        </div>
+    </div>
+
+    <div class="footer">
+        footer
+    </div>
+
+</body>
+</html>
